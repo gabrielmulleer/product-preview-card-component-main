@@ -17,6 +17,7 @@
 }
 
 body {
+
     background: var(--cream);
 }
 
@@ -66,13 +67,13 @@ body {
 
 /* Flexbox */
 .card {
-    width: 100vw;
-    height: 100vh;
+    min-height: calc(100vh - 1.3rem);
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-content: center;
     align-items: center;
+
 }
 
 .card-content {
@@ -86,14 +87,23 @@ body {
 }
 
 /* Image */
-.card-img{
+.card-img {
     max-width: 18.75rem;
     max-height: 28.125rem;
 }
 
-.card-img-mobile{
+.card-img-mobile {
     display: none;
     visibility: hidden;
+    max-width: 21.4375rem;
+    max-height: 15rem;
+
+}
+
+.card-img-mobile img {
+    border-radius: 11px 11px 0px 0px;
+    width: 21.4375rem;
+    height: 15rem;
 }
 
 .card-img img {
@@ -110,8 +120,10 @@ h1 {
 }
 
 h2 {
-    font-size: .875rem;
-
+    font-size: .75rem;
+    letter-spacing: 0.41em;
+    text-transform: uppercase;
+    padding-bottom: 1.6875rem;
 }
 
 h3 {
@@ -121,18 +133,11 @@ h3 {
 
 }
 
-h4 {
-    font-size: .75rem;
-    letter-spacing: 0.41em;
-    text-transform: uppercase;
-    padding-bottom: 1.6875rem;
-}
-
 .card-content p {
     line-height: 161%;
     letter-spacing: 0.01em;
     padding-right: 2.5rem;
-    padding-bottom: 2.8125rem;
+    padding-bottom: 1.8125rem;
     font-size: .875rem;
 }
 
@@ -143,10 +148,10 @@ h4 {
 
 .prices {
     max-width: 12.125rem;
-    max-height: 32px;
+    min-height: 2rem;
     display: flex;
     align-items: center;
-    padding-bottom: 2.875rem;
+    padding-bottom: 1.875rem;
 }
 
 .price {
@@ -158,8 +163,6 @@ h4 {
 button {
     border: none;
     cursor: pointer;
-    transition: 0.3s;
-
 }
 
 button:hover {
@@ -167,7 +170,7 @@ button:hover {
 }
 
 .button {
-    
+    transition: all 300ms ease-in-out;
     border-radius: .5rem;
     display: flex;
     align-items: center;
@@ -175,18 +178,20 @@ button:hover {
     width: 14.75rem;
     height: 3rem;
     background: var(--dark-cyan);
+
 }
 
 .button img {
     padding-right: .6875rem;
 }
 
-.add-to-cart{
+.add-to-cart {
     font-size: .875rem;
 }
 
 /* Footer */
 .attribution {
+    margin-top: 0.5rem;
     font-size: .6875rem;
     text-align: center;
 }
@@ -196,6 +201,56 @@ button:hover {
 }
 
 /* Media query */
-@media screen and (min-width: 36em) and (min-height: 40em) {
+@media screen and (max-width: 37.5rem) {
+    .attribution {
+        position: fixed;
+        bottom: 0.325rem;
+        width: 100%;
+    }
+
+    /* Image */
+    .card-img-mobile {
+        display: block;
+        visibility: visible;
+    }
+
+    .card-img {
+        display: none;
+        visibility: hidden;
+    }
+
+    /* Content */
+    .card-content {
+        padding-left: 1.5rem;
+        padding-top: 1.625rem;
+        min-width: 21.4375rem;
+        height: 23.1875rem;
+        border-radius: 0px 0px 11px 11px;
+    }
+
+    h2 {
+        padding-bottom: 12px;
+    }
+
+    .parfum {
+        padding-right: 2.1875rem;
+        padding-bottom: 1.0625rem;
+    }
+
+    .card-content p {
+        font-size: .875rem;
+        line-height: 161%;
+        letter-spacing: 0.01em;
+        padding-right: 1.375rem;
+        padding-bottom: 1.5rem;
 
     }
+
+    .prices {
+        padding-bottom: 1.25rem;
+    }
+
+    .button {
+        min-width: 18.4375rem;
+    }
+}
